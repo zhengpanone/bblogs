@@ -14,5 +14,5 @@ Welcome to BioInfo'S Blogs's documentation!
    copyright
    preface
    chapters/*
-   aboutme
+
 
