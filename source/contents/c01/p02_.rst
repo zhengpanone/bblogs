@@ -228,3 +228,16 @@ Oxford Nanopore 的MinION是另一个比较受关注的第三代测序仪，俗�
 
 
 .. |image1| image:: ./image/18112201.webp
+.. |image2| image:: ./image/18112202.webp
+.. |image3| image:: ./image/18112203.webp
+.. |image4| image:: ./image/18112204.webp
+.. |image5| image:: ./image/18112205.webp
+.. |image6| image:: ./image/18112206.webp
+.. |image7| image:: ./image/18112207.webp
+.. |image8| image:: ./image/18112208.webp
+.. |image9| image:: ./image/18112209.webp
+.. |image10| image:: ./image/18112210.webp
+.. |image11| image:: ./image/18112211.webp
+.. |image12| image:: ./image/18112212.webp
+.. |image13| image:: ./image/18112213.webp
+.. |image14| image:: ./image/18112214.webp
