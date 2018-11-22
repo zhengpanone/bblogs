@@ -221,4 +221,10 @@ Oxford Nanopore 的MinION是另一个比较受关注的第三代测序仪，俗�
 图14. 全球测序仪数量分布
 
 
+
+参考
+--------
+公众号：碱基矿工https://mp.weixin.qq.com/s/tWHWA-f1RnP_XWY66p12pg
+
+
 .. |image1| image:: ./image/18112201.webp
