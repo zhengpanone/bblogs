@@ -21,28 +21,25 @@
 
 project = 'BioInfo\'S Blogs'
 copyright = '2018, Pan'
-author = 'Pan'
+author = 'PanZheng'
 
 # The short X.Y version
-version = ''
+version = '1.0.0'
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '1.0.0'
 
 
-# -- General configuration ---------------------------------------------------
-
-# If your documentation needs a minimal Sphinx version, state it here.
-#
-# needs_sphinx = '1.0'
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
 extensions = [
+    'chinese_search', 
+    'myst_parser', 
+    'sphinx_markdown_tables',
+    'sphinx_copybutton',
+    'sphinx.ext.todo',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosectionlabel',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
@@ -75,7 +72,7 @@ language = 'zh_CN'
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
+pygments_style = 'sphinx'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -110,28 +107,33 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BioInfoSBlogsdoc'
+htmlhelp_basename = 'BioInfo Blog'
 
+formats = ["htmlzip", "pdf", "epub"]
 
 # -- Options for LaTeX output ------------------------------------------------
 
-latex_elements = {
+# 根据操作系统选择字体
+if platform.system() == 'Windows':
+    cjk_font = 'SimSun'
+elif platform.system() == 'Darwin':  # macOS
+    cjk_font = 'Songti SC'
+else:  # Linux
+    cjk_font = 'Noto Sans CJK SC'
+
+
+
+latex_elements = {  
     # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
+    'papersize': 'a4paper',  
     # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
+    'pointsize': '16pt',
+    'figure_align': 'htbp',
+    'preamble': r'''
+    \usepackage{xeCJK}
+    \setCJKmainfont{''' + cjk_font + r'''}
+    '''
+    } 
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -139,6 +141,14 @@ latex_elements = {
 latex_documents = [
     (master_doc, 'BioInfoSBlogs.tex', 'BioInfo\'S Blogs Documentation',
      'Pan', 'manual'),
+]
+
+# 使用XeLaTeX引擎
+latex_engine = 'xelatex'
+
+latex_documents = [
+    ('index', 'bblogs.tex', u'《生物信息博客》',
+     u'郑攀', 'howto'),
 ]
 
 
@@ -158,8 +168,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'BioInfoSBlogs', 'BioInfo\'S Blogs Documentation',
-     author, 'BioInfoSBlogs', 'One line description of project.',
+    (master_doc, 'BioInfo Blog', 'BioInfo Blog Documentation',
+     author, 'BioInfo Blog', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -194,3 +204,15 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+highlight_language = "python,go,javascript,html"
+
+numfig = True
+numfig_secnum_depth = 2
+
+numfig_format = {
+    'figure': '图 %s',
+    'table': '表 %s',
+    'code-block': '代码 %s',
+    'section': '节 %s',
+}
