@@ -140,20 +140,15 @@ latex_elements = {
     '''
     } 
 
+# 使用XeLaTeX引擎
+latex_engine = 'xelatex'
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'BioInfoSBlogs.tex', 'BioInfo\'S Blogs Documentation',
-     'Pan', 'manual'),
-]
-
-# 使用XeLaTeX引擎
-latex_engine = 'xelatex'
-
-latex_documents = [
     ('index', 'bblogs.tex', u'《生物信息博客》',
-     u'郑攀', 'howto'),
+     u'郑攀', 'manual'),
 ]
 
 
